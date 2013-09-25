@@ -1,0 +1,33 @@
+<h1>Model Version History:</h1>
+<table class="table table-striped table-hover">
+  <th>Commit Message</th>
+  <th>Load This Model</th>
+  <th>Check to Compare</th>
+  <tr ng-repeat="model in models">
+    <td>{{model.name}}</td>
+    <td>
+      <button class="btn" ng-click="loadVersion($index)">
+        <span class="glyphicon glyphicon-share"></span>
+      </button>
+    </td>
+    <td>
+      <input type="checkbox" ng-model="model.checked" ng-click="compareVersions($index)">
+    </td>
+  </tr>
+</table>
+<h1>Model Preview:</h1>
+<div class="row">
+  <div class="col-md-6">
+    <cytoscape id="previewVis" graph="previewGraphml" style="border-style: solid; height: 500px"></cytoscape>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <h2>Diff Visualization:</h2>
+      <cytoscape id="vis" graph="graphml" style="border-style: solid; height: 400px"></cytoscape>
+    </div>
+    <div class="row">
+      <h2>Model Diff:</h2>
+      <div ui-ace="{useWrapMode : true, showGutter: true, theme:'solarized_dark', mode: 'xml'}" ng-model="modelDiff"></div>
+    </div>
+  </div>
+</div>
