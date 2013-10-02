@@ -1,0 +1,5 @@
+<h1>Model Gallery</h1>
+<div ng-repeat="model in galleryRepos" class="col-md-3">
+  <cytoscape graph="model.graphml" style="border-style: solid; height: 150px" panzoomcontrolvisible="false"></cytoscape>
+  <a href="{{'http://github.com/' + model.user + '/' + model.repo + '/blob/master/' + model.file}}">Link to Model</a>
+</div>
