@@ -1,10 +1,18 @@
 <h1>Model Gallery</h1>
-<div ng-repeat="model in galleryRepos" class="col-md-3">
-  <cytoscape graph="model.graphml" style="border-style: solid; height: 150px" panzoomcontrolvisible="false"></cytoscape>
-  <div class="btn-group btn-group-justified">
-    <a class="btn btn-primary btn-sm pagination-centered" target="_blank" href="{{'http://github.com/' + model.user + '/' + model.repo + '/blob/master/' + model.file}}"><span class="glyphicon glyphicon-new-window"></span> View on GitHub</a>
+<div class="row">
+  <div ng-repeat="model in galleryRepos" class="col-md-3">
+    <cytoscape graph="model.graphml" style="border-style: solid; height: 150px" panzoomcontrolvisible="false"></cytoscape>
+    <div class="btn-group btn-group-justified">
+      <a class="btn btn-primary btn-sm pagination-centered" target="_blank" href="{{'http://github.com/' + model.user + '/' + model.repo + '/blob/master/' + model.file}}"><span class="glyphicon glyphicon-new-window"></span> View on GitHub</a>
     </div>
-  <div class="btn-group btn-group-justified">
-    <a class="btn btn-primary btn-sm pagination-centered" ng-click="loadGalleryRepo($index)"><span class="glyphicon glyphicon-open"></span> Load this Model</a>
+    <div class="btn-group btn-group-justified">
+      <a class="btn btn-primary btn-sm pagination-centered" ng-click="loadGalleryRepo($index)"><span class="glyphicon glyphicon-open"></span> Load this Model</a>
+    </div>
   </div>
+</div>
+<div class="row" data-intro="Some popular models are here." data-position="bottom">
+  
+  <p>Models from <a href="https://github.com/sysb-io/sysbio-gallery">the sysb.io gallery</a>.
+  Please be patient, the first time loading may take a little while...
+  </p>
 </div>

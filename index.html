@@ -12,6 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link rel="stylesheet" href="styles/70460c42.bootstrap.css">
+        <link rel="stylesheet" href="styles/8c0005c2.chardinjs.css">
         <link rel="stylesheet" href="styles/67f93c4d.main.css">
 </head>
   <body ng-app="sysbIoApp">
@@ -40,7 +41,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="MainCtrl">
         <div class="navbar-form navbar-right">
-          <a ng-class="classGithubLoginButton" ng-click="loginToGithub()"><span class="glyphicon glyphicon-user"></span> {{loginMessage}}</a>
+          <a data-intro="Log in to GitHub to be able to access more models" data-position="left" ng-class="classGithubLoginButton" ng-click="loginToGithub()"><span class="glyphicon glyphicon-user"></span> {{loginMessage}}</a>
+          <help class="btn btn-default" text="Help"><span class="glyphicon glyphicon-eye-open"></span> Help</help>
         </div>
       </div>
       <!-- /.navbar-collapse -->
@@ -48,9 +50,12 @@
     <div class="container">
       <div class="col-md-3">
         <ul class="nav nav-pills nav-stacked" style="background-color: #f7f5fa; border-radius: 5px">
-          <li ng-model="navModel" btn-radio="'load'"><a href="#/load">Load</a></li>
-          <li ng-model="navModel" btn-radio="'version'"><a href="#/version">Version History</a></li>
-          <li ng-model="navModel" btn-radio="'simulate'"><a href="#/simulate">Simulation</a></li>
+          <li ng-model="navModel" btn-radio="'load'" data-intro="Load SBML models here." data-position="right">
+          <a href="#/load">Load</a></li>
+          <li ng-model="navModel" btn-radio="'version'" data-intro="Preview and browse model history." data-position="right">
+          <a href="#/version">Version History</a></li>
+          <li ng-model="navModel" btn-radio="'simulate'" data-intro="Run the simulation of the model. Change settings and parameters to explore model behavior." data-position="bottom">
+          <a href="#/simulate">Simulation</a></li>
         </ul>
       </div>
       <div class="col-md-9" ng-view=""></div>
@@ -68,8 +73,8 @@
     </script>
 
 
-    <script src="scripts/5b6a2bfe.plugins.js"></script>
+    <script src="scripts/acf62ef6.plugins.js"></script>
 
-    <script src="scripts/38db71ab.scripts.js"></script>
+    <script src="scripts/ca5cab9a.scripts.js"></script>
   </body>
 </html>
