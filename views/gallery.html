@@ -1,5 +1,5 @@
 <h1>Model Gallery</h1>
-<div style="position: relative">
+<div infinite-scroll="loadMore()" infinite-scroll-distance="2" style="position: relative">
   <div ng-repeat="model in gallery" style="border-style: solid" class="row">
     <!-- <cytoscape graph='model.graphml' style="border-style: solid; height: 150px;" panZoomControlVisible='false'></cytoscape> -->
     <div class="col-md-9" style="position:relative; height: 400px">
@@ -17,7 +17,7 @@
 <div class="row" data-intro="Some popular models are here." data-position="bottom">
   
   <p>Models from <a href="https://github.com/sysb-io/sysbio-gallery">the sysb.io gallery</a>.
-  Please be patient, the first time loading may take a little while...
+  {{loadingText}}
   </p>
 </div>
 </div>
