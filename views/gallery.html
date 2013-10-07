@@ -1,10 +1,11 @@
 <h1>Model Gallery</h1>
 <div style="position: relative">
-<div class="row">
-  <div ng-repeat="model in galleryRepos" style="border-style: solid" class="col-md-6">
+  <div ng-repeat="model in gallery" style="border-style: solid" class="row">
     <!-- <cytoscape graph='model.graphml' style="border-style: solid; height: 150px;" panZoomControlVisible='false'></cytoscape> -->
-    <div style="position:relative; height: 400px">
-      <cyt sbml="model.sbml"></cyt>
+    <div class="col-md-9" style="position:relative; height: 400px">
+      <cyt sbml="model.getString()"></cyt>
+    </div>
+    <div ng-bind-html="notes[$index]" class="col-md-3" style="height: 400px; overflow: scroll">
     </div>
     <div class="btn-group btn-group-justified">
       <a class="btn btn-primary btn-sm pagination-centered" target="_blank" href="{{'http://github.com/' + model.user + '/' + model.repo + '/blob/master/' + model.file}}"><span class="glyphicon glyphicon-new-window"></span> View on GitHub</a>
@@ -13,7 +14,6 @@
       <a class="btn btn-primary btn-sm pagination-centered" ng-click="loadGalleryRepo($index)"><span class="glyphicon glyphicon-open"></span> Load this Model</a>
     </div>
   </div>
-</div>
 <div class="row" data-intro="Some popular models are here." data-position="bottom">
   
   <p>Models from <a href="https://github.com/sysb-io/sysbio-gallery">the sysb.io gallery</a>.
