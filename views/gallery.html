@@ -8,7 +8,8 @@
     <div ng-bind-html="notes[$index]" class="col-md-3" style="height: 400px; overflow: scroll">
     </div>
     <div class="btn-group btn-group-justified">
-      <a class="btn btn-primary btn-sm pagination-centered" target="_blank" href="{{'http://github.com/' + model.user + '/' + model.repo + '/blob/master/' + model.file}}"><span class="glyphicon glyphicon-new-window"></span> View on GitHub</a>
+      <a class="btn btn-primary btn-sm pagination-centered" target="_blank" href="{{'http://github.com/' + model.github.user + '/' + model.github.repo + '/blob/master/' + model.github.file}}">
+        <span class="glyphicon glyphicon-new-window"></span> View on GitHub</a>
     </div>
     <div class="btn-group btn-group-justified">
       <a class="btn btn-primary btn-sm pagination-centered" ng-click="loadGalleryRepo($index)"><span class="glyphicon glyphicon-open"></span> Load this Model</a>
