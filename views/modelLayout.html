@@ -1,0 +1,45 @@
+<div style="position:relative; height: 500px; border-style: solid">
+  <cyt sbml="modelSbml" config="cytConfig"></cyt>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h1>Species Node Style: </h1>
+    <table class="table table-striped table-hover">
+      <th>Style</th>
+      <th>Value</th>
+      <tr ng-repeat="(key, value) in speciesNodeStyle track by key">
+        <td>{{key}}</td>
+        <td>
+          <input type="text" ng-model="speciesNodeStyle[key]">
+        </td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="col-md-4">
+    <h1>Reaction Node Style: </h1>
+    <table class="table table-striped table-hover">
+      <th>Style</th>
+      <th>Value</th>
+      <tr ng-repeat="(key, value) in reactionNodeStyle">
+        <td>{{key}}</td>
+        <td>
+          <input type="text" ng-model="reactionNodeStyle[key]">
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <h1>Edge Style: </h1>
+    <table class="table table-striped table-hover">
+      <th>Style</th>
+      <th>Value</th>
+      <tr ng-repeat="(key, value) in edgeStyle">
+        <td>{{key}}</td>
+        <td>
+          <input type="text" ng-model="edgeStyle[key]">
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

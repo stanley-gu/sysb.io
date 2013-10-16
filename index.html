@@ -57,8 +57,10 @@
             <a href="#/load">Load</a></li>
           <li ng-class="{active: isCurrentRoute('/version')}" data-intro="Preview and browse model history." data-position="right">
             <a href="#/version">Version History</a></li>
-          <li ng-class="{active: isCurrentRoute('/simulate')}" data-intro="Run the simulation of the model. Change settings and parameters to explore model behavior." data-position="bottom">
+          <li ng-class="{active: isCurrentRoute('/simulate')}" data-intro="Run the simulation of the model." data-position="right">
             <a href="#/simulate">Simulation</a></li>
+          <li ng-class="{active: isCurrentRoute('/modelLayout')}" data-intro="Edit the visual layout of a model." data-position="right">
+            <a href="#/modelLayout">Model Layout</a></li>
         </ul>
       </div>
       <div class="col-md-9" ng-view=""></div>
@@ -76,11 +78,11 @@
     </script>
 
 
-    <script src="scripts/b2c0f88d.plugins.js"></script>
+    <script src="scripts/f153f8d6.plugins.js"></script>
     <script src="lib/arbor.js"></script>
     <script src="ace/mode-xml.js"></script>
     <script src="ace/theme-solarized_dark.js"></script>
 
-    <script src="scripts/564b203b.scripts.js"></script>
+    <script src="scripts/2f2c34b3.scripts.js"></script>
   </body>
 </html>
