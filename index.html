@@ -1,88 +1,74 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> </html>
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> </html>
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> </html>
+<![endif]-->
+<!-- [if gt IE 8] <!-->
+<html class="no-js">
+  <!-- <![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-        <link rel="stylesheet" href="styles/70460c42.bootstrap.css">
-        <link rel="stylesheet" href="styles/8c0005c2.chardinjs.css">
-        <link rel="stylesheet" href="styles/67f93c4d.main.css">
-</head>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
+    <link rel="stylesheet" href="styles/70460c42.bootstrap.css">
+    <link rel="stylesheet" href="styles/8c0005c2.chardinjs.css">
+    <link rel="stylesheet" href="styles/67f93c4d.main.css">
+  </head>
   <body ng-app="sysbIoApp">
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <p class="browsehappy">You are using an<strong>outdated</strong>browser&period; Please<a href="http://browsehappy.com/">upgrade your browser</a>to improve your experience&period;</p>
     <![endif]-->
-
     <!--[if lt IE 9]>
-      <script src="bower_components/es5-shim/es5-shim.js"></script>
-      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <nav class="navbar navbar-default" role="navigation">
-      <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- Add your site or application content here-->
+    <nav role="navigation" class="navbar navbar-default">
+      <!-- Brand and toggle get grouped for better mobile display-->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a href="#/" class="navbar-brand">sysb.io</a> <span class="navbar-brand">Modeler</span>
+        <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="#/" class="navbar-brand">sysb&period;io</a><span class="navbar-brand">Modeler</span>
       </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="MainCtrl">
-        <div class="navbar-form navbar-right">
-          <a data-intro="Log in to GitHub to be able to access more models" data-position="left" ng-class="classGithubLoginButton" ng-click="loginToGithub()"><span class="glyphicon glyphicon-user"></span> {{loginMessage}}</a>
-          <help class="btn btn-default" text="Help" data-intro="Activate help menu." data-position="bottom">
-            <span class="glyphicon glyphicon-eye-open"></span> Help</help>
+      <!-- Collect the nav links, forms, and other content for toggling-->
+      <div ng-controller="MainCtrl" class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="navbar-form navbar-right"><a data-intro="Log in to GitHub to be able to access more models" data-position="left" ng-class="classGithubLoginButton" ng-click="loginToGithub()"><span class="glyphicon glyphicon-user"></span>&lcub;&lcub;loginMessage&rcub;&rcub;</a>
+          <help text="Help" data-intro="Activate help menu." data-position="bottom" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span>Help</help>
         </div>
       </div>
-      <!-- /.navbar-collapse -->
+      <!-- /.navbar-collapse-->
     </nav>
     <div>
-      <div class="col-md-3" ng-controller="NavCtrl">
-        <ul class="nav nav-pills nav-stacked" style="background-color: #f7f5fa; border-radius: 5px">
-          <li ng-class="{active: isCurrentRoute('/gallery')}" data-intro="View a gallery of models." data-position="right">
-            <a href="#/gallery">Gallery</a></li>
-          <li ng-class="{active: isCurrentRoute('/load')}" data-intro="Load SBML models here." data-position="right">
-            <a href="#/load">Load</a></li>
-          <li ng-class="{active: isCurrentRoute('/version')}" data-intro="Preview and browse model history." data-position="right">
-            <a href="#/version">Version History</a></li>
-          <li ng-class="{active: isCurrentRoute('/simulate')}" data-intro="Run the simulation of the model." data-position="right">
-            <a href="#/simulate">Simulation</a></li>
-          <li ng-class="{active: isCurrentRoute('/modelLayout')}" data-intro="Edit the visual layout of a model." data-position="right">
-            <a href="#/modelLayout">Model Layout</a></li>
+      <div ng-controller="NavCtrl" class="col-md-3">
+        <ul style="background-color: #f7f5fa; border-radius: 5px" class="nav nav-pills nav-stacked">
+          <li ng-class="{active: isCurrentRoute(&quot;/gallery&quot;)}" data-intro="View a gallery of models." data-position="right"><a href="#/gallery">Gallery</a></li>
+          <li ng-class="{active: isCurrentRoute(&quot;/load&quot;)}" data-intro="Load SBML models here." data-position="right"><a href="#/load">Load</a></li>
+          <li ng-class="{active: isCurrentRoute(&quot;/version&quot;)}" data-intro="Preview and browse model history." data-position="right"><a href="#/version">Version History</a></li>
+          <li ng-class="{active: isCurrentRoute(&quot;/simulate&quot;)}" data-intro="Run the simulation of the model." data-position="right"><a href="#/simulate">Simulation</a></li>
+          <li ng-class="{active: isCurrentRoute(&quot;/modelLayout&quot;)}" data-intro="Edit the visual layout of a model." data-position="right"><a href="#/modelLayout">Model Layout</a></li>
         </ul>
       </div>
-      <div class="col-md-9" ng-view=""></div>
+      <div ng-view="" class="col-md-9"></div>
     </div>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID-->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
       ga('create', 'UA-44781209-1', 'sysb.io');
       ga('send', 'pageview');
     </script>
-
-
-    <script src="scripts/f153f8d6.plugins.js"></script>
+    <script src="scripts/7105be25.plugins.js"></script>
     <script src="lib/arbor.js"></script>
     <script src="ace/mode-xml.js"></script>
     <script src="ace/theme-solarized_dark.js"></script>
-
     <script src="scripts/cbb2b780.scripts.js"></script>
   </body>
 </html>
