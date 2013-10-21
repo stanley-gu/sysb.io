@@ -38,8 +38,8 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling-->
       <div ng-controller="MainCtrl" class="collapse navbar-collapse navbar-ex1-collapse">
-        <div class="navbar-form navbar-right"><a data-intro="Log in to GitHub to be able to access more models" data-position="left" ng-class="classGithubLoginButton" ng-click="loginToGithub()"><span class="glyphicon glyphicon-user"></span>&lcub;&lcub;loginMessage&rcub;&rcub;</a>
-          <help text="Help" data-intro="Activate help menu." data-position="bottom" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span>Help</help>
+        <div class="navbar-form navbar-right"><a data-intro="Log in to GitHub to be able to access more models" data-position="left" ng-class="classGithubLoginButton" ng-click="loginToGithub()"><span class="glyphicon glyphicon-user"></span> {{loginMessage}}</a>
+          <help text="Help" data-intro="Activate help menu." data-position="bottom" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span> Help</help>
         </div>
       </div>
       <!-- /.navbar-collapse-->
