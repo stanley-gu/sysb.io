@@ -1,105 +1,101 @@
-<html>
-  <body>
-    <h1>Load SBML Model</h1>
-    <div id="accordion" class="panel-group">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="accordion-toggle">Import from GitHub</a></h4>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse in">
-          <div class="panel-body">
-            <div class="form-group">
-              <div class="input-group"><span class="input-group-addon">Github User Name</span>
-                <input type="text" ng-model="githubUserName" placeholder="Enter GitHub User Name" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group"><span class="input-group-addon">GitHub Repository</span>
-                <input type="text" ng-model="githubRepository" placeholder="Enter GitHub Repository" typeahead="repository for repository in github.repos | filter:$viewValue" typeahead-wait-ms="300" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group"><span class="input-group-addon">Model File Path</span>
-                <input type="text" ng-model="githubModelName" placeholder="Enter Path to Model" typeahead="file for file in github.files | filter:$viewValue" typeahead-wait-ms="300" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <button ng-click="loadFromGithub()" class="btn btn-large btn-success"><span class="glyphicon glyphicon-refresh"></span>Load Model History</button>
-            </div>
+<h1>Load SBML Model</h1>
+<div id="accordion" class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" class="accordion-toggle">Import from GitHub</a></h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <div class="form-group">
+          <div class="input-group"><span class="input-group-addon">Github User Name</span>
+            <input type="text" ng-model="githubUserName" placeholder="Enter GitHub User Name" class="form-control">
           </div>
         </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="accordion-toggle">Copy and Paste SBML</a></h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse">
-          <div class="panel-body">
-            <div ui-ace="{useWrapMode : true, showGutter: true, theme:&quot;solarized_dark&quot;, mode: &quot;xml&quot;}" ng-model="sbmlTextToLoad"></div><br>
-            <button ng-click="loadFromText()" class="btn btn-large btn-success"><span class="glyphicon glyphicon-refresh"></span>Load Model</button>
+        <div class="form-group">
+          <div class="input-group"><span class="input-group-addon">GitHub Repository</span>
+            <input type="text" ng-model="githubRepository" placeholder="Enter GitHub Repository" typeahead="repository for repository in github.repos | filter:$viewValue" typeahead-wait-ms="300" class="form-control">
           </div>
         </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="accordion-toggle">Upload SBML</a></h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse">
-          <div class="panel-body">
-            <!-- The file upload form used as target for the file upload widget-->
-            <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data" data-file-upload="options">
-              <!-- Redirect browsers with JavaScript disabled to the origin page-->
-              <noscript>
-                <input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/">
-              </noscript>
-              <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload-->
-              <div class="row fileupload-buttonbar">
-                <div class="col-lg-7">
-                  <!-- The fileinput-button span is used to style the file input field as button-->
-                  <input type="file" name="files[]" multiple="multiple" ng-disabled="disabled"><br>
-                  <button type="button" data-ng-click="submit()" class="btn btn-primary start"><i class="glyphicon glyphicon-upload"></i><span>Start upload</span></button>
-                  <button type="button" data-ng-click="cancel()" class="btn btn-warning cancel"><i class="glyphicon glyphicon-ban-circle"></i><span>Cancel upload</span></button>
-                  <!-- The loading indicator is shown during file processing-->
-                  <div class="fileupload-loading"></div>
-                </div>
-                <!-- The global progress information-->
-                <div data-ng-class="{in: active()}" class="col-lg-5 fade">
-                  <!-- The global progress bar-->
-                  <div data-file-upload-progress="progress()" class="progress progress-striped active">
-                    <div data-ng-style="{width: num + &quot;%&quot;}" class="progress-bar progress-bar-success"></div>
-                  </div>
-                  <!-- The extended global progress information-->
-                  <div class="progress-extended">&NonBreakingSpace;</div>
-                </div>
-              </div>
-              <!-- The table listing the files available for upload/download-->
-              <table class="table table-striped files ng-cloak">
-                <tr data-ng-repeat="file in queue">
-                  <td data-ng-switch="" data-on="!!file.thumbnailUrl">
-                    <div data-ng-switch-when="true" class="preview"><a data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery=""><img data-ng-src="{{file.thumbnailUrl}}" alt=""></a></div>
-                    <div data-ng-switch-default="" data-file-upload-preview="file" class="preview"></div>
-                  </td>
-                  <td>
-                    <p data-ng-switch="" data-on="!!file.url" class="name"><span data-ng-switch-when="true" data-ng-switch="" data-on="!!file.thumbnailUrl"><a data-ng-switch-when="true" data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery="">&lcub;&lcub;file&period;name&rcub;&rcub;</a><a data-ng-switch-default="" data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}">&lcub;&lcub;file&period;name&rcub;&rcub;</a></span><span data-ng-switch-default="">&lcub;&lcub;file&period;name&rcub;&rcub;</span></p>
-                    <div data-ng-show="file.error"><span class="label label-danger">Error</span>&lcub;&lcub;file&period;error&rcub;&rcub;</div>
-                  </td>
-                  <td>
-                    <p class="size">&lcub;&lcub;file&period;size &VerticalLine; formatFileSize&rcub;&rcub;</p>
-                    <div data-ng-class="{pending: &quot;in&quot;}[file.$state()]" data-file-upload-progress="file.$progress()" class="progress progress-striped active fade">
-                      <div data-ng-style="{width: num + &quot;%&quot;}" class="progress-bar progress-bar-success"></div>
-                    </div>
-                  </td>
-                  <td>
-                    <button type="button" data-ng-click="file.$submit()" data-ng-hide="!file.$submit" class="btn btn-primary start"><i class="glyphicon glyphicon-upload"></i><span>Start</span></button>
-                    <button type="button" data-ng-click="file.$cancel()" data-ng-hide="!file.$cancel" class="btn btn-warning cancel"><i class="glyphicon glyphicon-ban-circle"></i><span>Cancel</span></button>
-                    <button data-ng-controller="FileDestroyController" type="button" data-ng-click="file.$destroy()" data-ng-hide="!file.$destroy" class="btn btn-danger destroy"><i class="glyphicon glyphicon-trash"></i><span>Delete</span></button>
-                  </td>
-                </tr>
-              </table>
-            </form>
+        <div class="form-group">
+          <div class="input-group"><span class="input-group-addon">Model File Path</span>
+            <input type="text" ng-model="githubModelName" placeholder="Enter Path to Model" typeahead="file for file in github.files | filter:$viewValue" typeahead-wait-ms="300" class="form-control">
           </div>
+        </div>
+        <div class="form-group">
+          <button ng-click="loadFromGithub()" class="btn btn-large btn-success"><span class="glyphicon glyphicon-refresh"></span>Load Model History</button>
         </div>
       </div>
     </div>
-  </body>
-</html>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" class="accordion-toggle">Copy and Paste SBML</a></h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div ui-ace="{useWrapMode : true, showGutter: true, theme:&quot;solarized_dark&quot;, mode: &quot;xml&quot;}" ng-model="sbmlTextToLoad"></div><br>
+        <button ng-click="loadFromText()" class="btn btn-large btn-success"><span class="glyphicon glyphicon-refresh"></span>Load Model</button>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree" class="accordion-toggle">Upload SBML</a></h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <!-- The file upload form used as target for the file upload widget-->
+        <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data" data-file-upload="options">
+          <!-- Redirect browsers with JavaScript disabled to the origin page-->
+          <noscript>
+            <input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/">
+          </noscript>
+          <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload-->
+          <div class="row fileupload-buttonbar">
+            <div class="col-lg-7">
+              <!-- The fileinput-button span is used to style the file input field as button-->
+              <input type="file" name="files[]" multiple="multiple" ng-disabled="disabled"><br>
+              <button type="button" data-ng-click="submit()" class="btn btn-primary start"><i class="glyphicon glyphicon-upload"></i><span>Start upload</span></button>
+              <button type="button" data-ng-click="cancel()" class="btn btn-warning cancel"><i class="glyphicon glyphicon-ban-circle"></i><span>Cancel upload</span></button>
+              <!-- The loading indicator is shown during file processing-->
+              <div class="fileupload-loading"></div>
+            </div>
+            <!-- The global progress information-->
+            <div data-ng-class="{in: active()}" class="col-lg-5 fade">
+              <!-- The global progress bar-->
+              <div data-file-upload-progress="progress()" class="progress progress-striped active">
+                <div data-ng-style="{width: num + &quot;%&quot;}" class="progress-bar progress-bar-success"></div>
+              </div>
+              <!-- The extended global progress information-->
+              <div class="progress-extended">&NonBreakingSpace;</div>
+            </div>
+          </div>
+          <!-- The table listing the files available for upload/download-->
+          <table class="table table-striped files ng-cloak">
+            <tr data-ng-repeat="file in queue">
+              <td data-ng-switch="" data-on="!!file.thumbnailUrl">
+                <div data-ng-switch-when="true" class="preview"><a data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery=""><img data-ng-src="{{file.thumbnailUrl}}" alt=""></a></div>
+                <div data-ng-switch-default="" data-file-upload-preview="file" class="preview"></div>
+              </td>
+              <td>
+                <p data-ng-switch="" data-on="!!file.url" class="name"><span data-ng-switch-when="true" data-ng-switch="" data-on="!!file.thumbnailUrl"><a data-ng-switch-when="true" data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery="">&lcub;&lcub;file&period;name&rcub;&rcub;</a><a data-ng-switch-default="" data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}">&lcub;&lcub;file&period;name&rcub;&rcub;</a></span><span data-ng-switch-default="">&lcub;&lcub;file&period;name&rcub;&rcub;</span></p>
+                <div data-ng-show="file.error"><span class="label label-danger">Error</span>&lcub;&lcub;file&period;error&rcub;&rcub;</div>
+              </td>
+              <td>
+                <p class="size">&lcub;&lcub;file&period;size &VerticalLine; formatFileSize&rcub;&rcub;</p>
+                <div data-ng-class="{pending: &quot;in&quot;}[file.$state()]" data-file-upload-progress="file.$progress()" class="progress progress-striped active fade">
+                  <div data-ng-style="{width: num + &quot;%&quot;}" class="progress-bar progress-bar-success"></div>
+                </div>
+              </td>
+              <td>
+                <button type="button" data-ng-click="file.$submit()" data-ng-hide="!file.$submit" class="btn btn-primary start"><i class="glyphicon glyphicon-upload"></i><span>Start</span></button>
+                <button type="button" data-ng-click="file.$cancel()" data-ng-hide="!file.$cancel" class="btn btn-warning cancel"><i class="glyphicon glyphicon-ban-circle"></i><span>Cancel</span></button>
+                <button data-ng-controller="FileDestroyController" type="button" data-ng-click="file.$destroy()" data-ng-hide="!file.$destroy" class="btn btn-danger destroy"><i class="glyphicon glyphicon-trash"></i><span>Delete</span></button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,61 +1,57 @@
-<html>
-  <body>
-    <h1>Simulation</h1>
+<h1>Simulation</h1>
+<div class="row">
+  <div style="position:relative; height: 500px; border-style: solid">
+    <cyt sbml="simSbml"></cyt>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <!--<rickshaw width='400' height='400' data='simData'></rickshaw>
+    -->
+    <highchart id="simChart" config="chartConfig"></highchart>
+  </div>
+  <div class="col-md-6">
     <div class="row">
-      <div style="position:relative; height: 500px; border-style: solid">
-        <cyt sbml="simSbml"></cyt>
-      </div>
+      <h2>Simulation Settings</h2>
+      <table class="table table-striped table-hover">
+        <tr>
+          <th>Attribute</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Start Time</td>
+          <td>
+            <input type="number" ng-model="simStartTime" name="simStartTime">
+          </td>
+        </tr>
+        <tr>
+          <td>End Time</td>
+          <td>
+            <input type="number" ng-model="simEndTime" name="simEndTime">
+          </td>
+        </tr>
+        <tr>
+          <td>&num; Steps</td>
+          <td>
+            <input type="number" ng-model="simNumSteps" name="simNumSteps">
+          </td>
+        </tr>
+      </table>
     </div>
     <div class="row">
-      <div class="col-md-6">
-        <!--<rickshaw width='400' height='400' data='simData'></rickshaw>
-        -->
-        <highchart id="simChart" config="chartConfig"></highchart>
-      </div>
-      <div class="col-md-6">
-        <div class="row">
-          <h2>Simulation Settings</h2>
-          <table class="table table-striped table-hover">
-            <tr>
-              <th>Attribute</th>
-              <th>Value</th>
-            </tr>
-            <tr>
-              <td>Start Time</td>
-              <td>
-                <input type="number" ng-model="simStartTime" name="simStartTime">
-              </td>
-            </tr>
-            <tr>
-              <td>End Time</td>
-              <td>
-                <input type="number" ng-model="simEndTime" name="simEndTime">
-              </td>
-            </tr>
-            <tr>
-              <td>&num; Steps</td>
-              <td>
-                <input type="number" ng-model="simNumSteps" name="simNumSteps">
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="row">
-          <h2>Rate Constants</h2>
-          <table class="table table-striped table-hover">
-            <tr>
-              <th>Attribute</th>
-              <th>Value</th>
-            </tr>
-            <tr ng-repeat="param in params">
-              <td>&lcub;&lcub;param&period;id&rcub;&rcub;</td>
-              <td>
-                <input type="number" ng-model="param.value" name="paramValue" step="{{param.value/20}}" ng-change="paramUpdate($index)">
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
+      <h2>Rate Constants</h2>
+      <table class="table table-striped table-hover">
+        <tr>
+          <th>Attribute</th>
+          <th>Value</th>
+        </tr>
+        <tr ng-repeat="param in params">
+          <td>&lcub;&lcub;param&period;id&rcub;&rcub;</td>
+          <td>
+            <input type="number" ng-model="param.value" name="paramValue" step="{{param.value/20}}" ng-change="paramUpdate($index)">
+          </td>
+        </tr>
+      </table>
     </div>
-  </body>
-</html>
+  </div>
+</div>

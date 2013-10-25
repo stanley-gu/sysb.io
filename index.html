@@ -20,6 +20,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
     <link rel="stylesheet" href="styles/70460c42.bootstrap.css">
     <link rel="stylesheet" href="styles/8c0005c2.chardinjs.css">
+    <link rel="stylesheet" href="styles/064af707.terminal.css">
     <link rel="stylesheet" href="styles/67f93c4d.main.css">
   </head>
   <body ng-app="sysbIoApp">
@@ -51,7 +52,7 @@
           <li ng-class="{active: isCurrentRoute(&quot;/load&quot;)}" data-intro="Load SBML models here." data-position="right"><a href="#/load">Load</a></li>
           <li ng-class="{active: isCurrentRoute(&quot;/version&quot;)}" data-intro="Preview and browse model history." data-position="right"><a href="#/version">Version History</a></li>
           <li ng-class="{active: isCurrentRoute(&quot;/simulate&quot;)}" data-intro="Run the simulation of the model." data-position="right"><a href="#/simulate">Simulation</a></li>
-          <li ng-class="{active: isCurrentRoute(&quot;/modelLayout&quot;)}" data-intro="Edit the visual layout of a model." data-position="right"><a href="#/modelLayout">Model Layout</a></li>
+          <li ng-class="{active: isCurrentRoute(&quot;/modelLayout&quot;)}" data-intro="Edit the visual layout of a model." data-position="right" class="hide"><a href="#/modelLayout">Model Layout</a></li>
         </ul>
       </div>
       <div ng-view="" class="col-md-9"></div>
@@ -65,10 +66,10 @@
       ga('create', 'UA-44781209-1', 'sysb.io');
       ga('send', 'pageview');
     </script>
-    <script src="scripts/7105be25.plugins.js"></script>
+    <script src="scripts/f5d28f45.plugins.js"></script>
     <script src="lib/arbor.js"></script>
     <script src="ace/mode-xml.js"></script>
     <script src="ace/theme-solarized_dark.js"></script>
-    <script src="scripts/cbb2b780.scripts.js"></script>
+    <script src="scripts/cf595a8b.scripts.js"></script>
   </body>
 </html>
