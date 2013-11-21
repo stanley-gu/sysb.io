@@ -1,0 +1,24 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" ng-click="$dismiss()" class="close">&times;</button>
+      <h4 class="modal-title">Export Model</h4>
+    </div>
+    <div class="modal-body">
+      <tabset>
+        <tab heading="SBML">
+          <div ui-ace="{useWrapMode : true, showGutter: true, theme:&quot;solarized_dark&quot;, mode: &quot;xml&quot;}" ng-model="sbml"></div>
+        </tab>
+        <tab heading="MATLAB">
+          <h4>Coming soon!</h4>
+        </tab>
+        <tab heading="Antimony">
+          <h4>Coming soon!</h4>
+        </tab>
+      </tabset>
+    </div>
+    <div class="modal-footer">
+      <button type="button" ng-click="$dismiss()" class="btn btn-default">Close</button>
+    </div>
+  </div>
+</div>

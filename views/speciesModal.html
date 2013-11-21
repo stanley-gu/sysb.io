@@ -1,0 +1,28 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" ng-click="$dismiss()" class="close">&times;</button>
+      <h4 class="modal-title">Edit Species: {{id}}</h4>
+    </div>
+    <div class="modal-body">
+      <form role="form" name="form">
+        <div class="form-group">
+          <label>ID</label>
+          <input type="text" ng-model="species.id" placeholder="{{id}}" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" ng-model="species.name" placeholder="{{name}}" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Initial Amount</label>
+          <input type="number" ng-model="species.initialAmount" placeholder="{{initialAmount}}" class="form-control">
+        </div>
+        <div class="modal-footer">
+          <button type="button" ng-disabled="form.$invalid" ng-click="$close(species)" class="btn btn-default">Save</button>
+          <button type="button" ng-click="$dismiss()" class="btn btn-default">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
