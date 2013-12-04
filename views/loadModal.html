@@ -17,7 +17,21 @@
             </div>
           </div>
         </div>
-        <p>or</p>
+        <p class="text-info text-center">or</p>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#collapseUrl" class="accordion-toggle">Load from URL</a></h4>
+          </div>
+          <div id="collapseUrl" class="panel-collapse collapse">
+            <div class="panel-body">
+              <form name="urlForm">
+                <input type="url" name="urlInput" ng-model="$parent.urlToLoad" required="required" class="form-control"><br>
+                <button ng-click="loadFromUrl($parent.urlToLoad)" class="btn btn-large btn-success"><span class="glyphicon glyphicon-refresh"></span> Load Model</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <p class="text-info text-center">or</p>
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo" class="accordion-toggle">Copy and Paste SBML</a></h4>
@@ -29,7 +43,7 @@
             </div>
           </div>
         </div>
-        <p>or</p>
+        <p class="text-info text-center">or</p>
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne" class="accordion-toggle">Import from GitHub</a></h4>
