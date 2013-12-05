@@ -42,10 +42,12 @@
       <!-- Collect the nav links, forms, and other content for toggling-->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <div class="navbar-form navbar-right">
-          <button ng-show="model.id" class="btn btn-success">Currently loaded: <strong style="color: black">{{model.id}}</strong></button>
-          <button data-intro="Log in to GitHub to be able to access more models" data-position="left" ng-class="{&quot;btn btn-success&quot;: App.accessToken, &quot;btn btn-danger&quot;: !App.accessToken}" ng-click="loginToGithub()"><span ng-class="{&quot;glyphicon-user&quot;: App.accessToken, &quot;glyphicon-log-in&quot;: !App.accessToken}" class="glyphicon"></span> {{loginMessage()}}</button>
-          <button data-intro="Log out of Github" data-position="bottom" ng-show="App.accessToken" ng-click="logOutOfGithub()" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
-          <help text="Help" data-intro="Activate help menu." data-position="bottom" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span> Help</help>
+          <div class="form-group">
+            <button ng-show="model.id" class="btn btn-success">Currently loaded: <strong style="color: black">{{model.id}}</strong></button>
+            <button data-intro="Log in to GitHub to be able to access more models" data-position="left" ng-class="{&quot;btn btn-success&quot;: App.accessToken, &quot;btn btn-danger&quot;: !App.accessToken}" ng-click="loginToGithub()"><span ng-class="{&quot;glyphicon-user&quot;: App.accessToken, &quot;glyphicon-log-in&quot;: !App.accessToken}" class="glyphicon"></span> {{loginMessage()}}</button>
+            <button data-intro="Log out of Github" data-position="bottom" ng-show="App.accessToken" ng-click="logOutOfGithub()" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
+            <help text="Help" data-intro="Activate help menu." data-position="bottom" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span> Help</help>
+          </div>
         </div>
         <ul class="nav navbar-nav">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">File<b class="caret"></b></a>
@@ -63,6 +65,18 @@
               <li>
                 <div class="dropdown-header">Window Split</div><a ng-model="windowPaneSize" btn-radio="'90-10'" class="btn">90:10</a><a ng-model="windowPaneSize" btn-radio="'75-25'" class="btn">75:25</a><a ng-model="windowPaneSize" btn-radio="'50-50'" class="btn">50:50</a><a ng-model="windowPaneSize" btn-radio="'25-75'" class="btn">25:75</a><a ng-model="windowPaneSize" btn-radio="'10-90'" class="btn">10:90</a>
               </li>
+              <li>
+                <div class="dropdown-header">Layout Type</div>
+                <a ng-model="layoutName" btn-radio="'grid'" class="btn">Grid</a>
+                <a ng-model="layoutName" btn-radio="'arbor'" class="btn">Force-Directed</a>
+                <a ng-model="layoutName" btn-radio="'circle'" class="btn">Circle</a>
+                <a ng-model="layoutName" btn-radio="'breadthfirst'" class="btn">Breadth-First</a>
+                <a ng-model="layoutName" btn-radio="'random'" class="btn">Random</a>
+              </li>
+              <li>
+                <div class="dropdown-header">Enable Scroll to Zoom</div>
+                <a ng-model="cyZoom" btn-checkbox="" btn-checkbox-true="true" btn-checkbox-false="false" class="btn">{{cyZoom}}</a>
+              </li>
             </ul>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Tools<b class="caret"></b></a>
@@ -75,18 +89,6 @@
         </ul>
       </div>
     </nav>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="btn"></div>Layout Type:
-        <button type="button" ng-model="layoutName" btn-radio="'grid'" class="btn btn-info">Grid</button>
-        <button type="button" ng-model="layoutName" btn-radio="'arbor'" class="btn btn-info">Force-Directed</button>
-        <button type="button" ng-model="layoutName" btn-radio="'circle'" class="btn btn-info">Circle</button>
-        <button type="button" ng-model="layoutName" btn-radio="'breadthfirst'" class="btn btn-info">Breadth-First</button>
-        <button type="button" ng-model="layoutName" btn-radio="'random'" class="btn btn-info">Random</button>
-        <div class="btn"></div>Enable Scroll to Zoom:
-        <button type="button" ng-model="cyZoom" btn-checkbox="" btn-checkbox-true="true" btn-checkbox-false="false" class="btn btn-info">{{cyZoom}}</button>
-      </div>
-    </div><br>
     <div class="row">
       <div ng-class="App.settings.view.windowPane[windowPaneSize].left" ng-click="updateSelectedNodes()" style="position:relative; z-index: 0; height: 500px; background-color: #DEDEDE">
         <cyt sbml="model.sbml" config="cytConfig" cy="cy"></cyt>
@@ -246,7 +248,7 @@
       ga('create', 'UA-44781209-1', 'sysb.io');
       ga('send', 'pageview');
     </script>
-    <script src="scripts/997e4db0.plugins.js"></script>
+    <script src="scripts/45a5d6c3.plugins.js"></script>
     <script src="lib/arbor.js"></script>
     <script src="ace/mode-xml.js"></script>
     <script src="ace/theme-solarized_dark.js"></script>
