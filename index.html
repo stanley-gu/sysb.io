@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="styles/fdff3d4a.main.css">
 </head>
 
-<body ng-app="sysbIoApp" ng-controller="MainCtrl" ng-cloak="" ui-keydown="{&quot;alt-78&quot;: &quot;newModel()&quot;, &quot;alt-76&quot;: &quot;startModalLoadModel()&quot;, &quot;alt-83&quot;: &quot;saveModel()&quot;, &quot;alt-69&quot;: &quot;exportSbml()&quot;}">
+<body ng-app="sysbIoApp" ng-controller="MainCtrl" ng-cloak="" ui-keydown="{&quot;alt-78&quot;: &quot;newModel()&quot;, &quot;alt-76&quot;: &quot;startModalLoadModel()&quot;, &quot;alt-83&quot;: &quot;save()&quot;, &quot;alt-69&quot;: &quot;exportSbml()&quot;}">
   <!--[if lt IE 7]>
     <p class="browsehappy">You are using an<strong>outdated</strong>browser&period; Please<a href="http://browsehappy.com/">upgrade your browser</a>to improve your experience&period;</p>
     <![endif]-->
@@ -54,9 +54,9 @@
           <button ng-show="model.id" class="btn btn-success">Currently loaded:
             <strong style="color: black">{{model.id}}</strong>
           </button>
-          <button data-intro="Log in to GitHub to be able to access more models" data-position="left" ng-class="{&quot;btn btn-success&quot;: App.accessToken, &quot;btn btn-danger&quot;: !App.accessToken}" ng-click="loginToGithub()">
-            <span ng-class="{&quot;glyphicon-user&quot;: App.accessToken, &quot;glyphicon-log-in&quot;: !App.accessToken}" class="glyphicon"></span>{{loginMessage()}}</button>
-          <button data-intro="Log out of Github" data-position="bottom" ng-show="App.accessToken" ng-click="logOutOfGithub()" class="btn btn-default">
+          <button data-intro="Log in to GitHub to be able to access more models" data-position="left" ng-class="{&quot;btn btn-success&quot;: App.data.github.accessToken, &quot;btn btn-danger&quot;: !App.data.github.accessToken}" ng-click="loginToGithub()">
+            <span ng-class="{&quot;glyphicon-user&quot;: App.data.github.accessToken, &quot;glyphicon-log-in&quot;: !App.data.github.accessToken}" class="glyphicon"></span>{{loginMessage()}}</button>
+          <button data-intro="Log out of Github" data-position="bottom" ng-show="App.data.github.accessToken" ng-click="unsave()" class="btn btn-default">
             <span class="glyphicon glyphicon-log-out"></span>Logout</button>
           <help text="Help" data-intro="Activate help menu." data-position="bottom" class="btn btn-default">
             <span class="glyphicon glyphicon-eye-open"></span>Help</help>
@@ -65,7 +65,7 @@
       <ul class="nav navbar-nav">
         <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">File<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a ng-click="newModel()" class="btn">New<span class="pull-right">alt-n</span></a><a ng-click="startModalLoadModel()" class="btn">Load<span class="pull-right">alt-l</span></a><a ng-click="saveModel()" class="btn">Save<span class="pull-right">alt-s</span></a><a ng-click="exportSbml()" class="btn">Export<span class="pull-right">alt-e</span></a>
+            <li><a ng-click="newModel()" class="btn">New<span class="pull-right">alt-n</span></a><a ng-click="startModalLoadModel()" class="btn">Load<span class="pull-right">alt-l</span></a><a ng-click="save()" class="btn">Save<span class="pull-right">alt-s</span></a><a ng-click="exportSbml()" class="btn">Export<span class="pull-right">alt-e</span></a>
             </li>
           </ul>
         </li>
@@ -97,7 +97,7 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Tools<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
-              <div class="dropdown-header">Open Toolbar Panes</div><a ng-click="startModalVersion()" class="btn">Version History</a><a ng-model="App.settings.view.toolbar.simulate.visible" btn-checkbox="" class="btn">Simulate</a><a ng-model="App.settings.view.toolbar.nodeStyles.visible" btn-checkbox="" class="btn">Selected Node Styles</a><a ng-model="App.settings.view.toolbar.editModel.visible" btn-checkbox="" class="btn">Edit Model</a>
+              <div class="dropdown-header">Open Toolbar Panes</div><a ng-click="startModalVersion()" class="btn">Version History</a><a ng-model="App.data.settings.view.toolbar.simulate.visible" btn-checkbox="" class="btn">Simulate</a><a ng-model="App.data.settings.view.toolbar.nodeStyles.visible" btn-checkbox="" class="btn">Selected Node Styles</a><a ng-model="App.data.settings.view.toolbar.editModel.visible" btn-checkbox="" class="btn">Edit Model</a>
             </li>
           </ul>
         </li>
@@ -105,7 +105,7 @@
     </div>
   </nav>
   <div class="row">
-    <div ng-class="App.settings.view.windowPane[windowPaneSize].left">
+    <div ng-class="App.data.settings.view.windowPane[windowPaneSize].left">
       <tabset>
         <tab class="nav nav-tabs" heading="Model Layout">
           <div ng-click="updateSelectedNodes()" style="position:relative; z-index: 0; height: 400px; background-color: #FFF">
@@ -120,7 +120,7 @@
         </tab>
       </tabset>
     </div>
-    <div ng-class="App.settings.view.windowPane[windowPaneSize].right">
+    <div ng-class="App.data.settings.view.windowPane[windowPaneSize].right">
       <tabset>
         <tab class="nav nav-tabs" heading="Simulation">
           <ng-include src="'views/simulate.html'"></ng-include>
@@ -155,7 +155,7 @@
   <script src="ace/mode-xml.js"></script>
   <script src="ace/mode-matlab.js"></script>
   <script src="ace/theme-solarized_dark.js"></script>
-  <script src="scripts/256f009c.scripts.js"></script>
+  <script src="scripts/d33f8320.scripts.js"></script>
 </body>
 
 </html>
