@@ -23,8 +23,8 @@
   <link rel="stylesheet" href="styles/8c0005c2.chardinjs.css">
   <link rel="stylesheet" href="styles/a93a5986.angular-slider.css">
   <link rel="stylesheet" href="styles/46a3d3ed.terminal.css">
-  <link rel="stylesheet" href="styles/6d98cb67.dropzone.css">
-  <link rel="stylesheet" href="styles/b0e0f926.main.css">
+  <link rel="stylesheet" href="styles/cc3d8897.dropzone.css">
+  <link rel="stylesheet" href="styles/37498b1e.main.css">
 </head>
 
 <body ng-app="sysbIoApp" ng-controller="MainCtrl" ng-cloak="" ui-keydown="{&quot;alt-78&quot;: &quot;newModel()&quot;, &quot;alt-76&quot;: &quot;startModalLoadModel()&quot;, &quot;alt-83&quot;: &quot;save()&quot;, &quot;alt-69&quot;: &quot;exportSbml()&quot;}">
@@ -80,7 +80,7 @@
             <li>
               <div class="dropdown-header">Window Split</div><a ng-model="windowPaneSize" btn-radio="'90-10'" class="btn">90:10</a><a ng-model="windowPaneSize" btn-radio="'75-25'" class="btn">75:25</a><a ng-model="windowPaneSize" btn-radio="'50-50'" class="btn">50:50</a><a ng-model="windowPaneSize" btn-radio="'25-75'" class="btn">25:75</a><a ng-model="windowPaneSize" btn-radio="'10-90'" class="btn">10:90</a>
             </li>
-            <li>
+            <li ng-controller="ModelLayoutCtrl">
               <div class="dropdown-header">Layout Type</div>
               <a ng-model="layoutName" btn-radio="'grid'" class="btn">Grid</a>
               <a ng-model="layoutName" btn-radio="'arbor'" class="btn">Force-Directed</a>
@@ -108,9 +108,7 @@
     <div ng-class="App.data.settings.view.windowPane[windowPaneSize].left">
       <tabset>
         <tab class="nav nav-tabs" heading="Model Layout">
-          <div ng-click="updateSelectedNodes()" style="position:relative; z-index: 0; height: 400px; background-color: #FFF">
-            <cyt sbml="model.sbml" config="cytConfig" cy="cy"></cyt>
-          </div>
+          <ng-include src="'views/modelLayout.html'"></ng-include>          
         </tab>
       </tabset>
     </div>
@@ -144,12 +142,12 @@
   ga('create', 'UA-44781209-1', 'sysb.io');
   ga('send', 'pageview');
   </script>
-  <script src="scripts/bdc994a7.plugins.js"></script>
+  <script src="scripts/77b1df0f.plugins.js"></script>
   <script src="lib/arbor.js"></script>
   <script src="ace/mode-xml.js"></script>
   <script src="ace/mode-matlab.js"></script>
   <script src="ace/theme-solarized_dark.js"></script>
-  <script src="scripts/430aeb4b.scripts.js"></script>
+  <script src="scripts/76fe6e96.scripts.js"></script>
 </body>
 
 </html>
