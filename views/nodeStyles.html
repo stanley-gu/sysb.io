@@ -1,12 +1,4 @@
-<div ng-controller="NodeStyleCtrl">
-  <h4>Element Selector:</h4>
-  <input type="text" ng-model="cySelector" />
-  <h4>JSON Style:</h4>
-  <div ui-ace="{useWrapMode : true, showGutter: true, theme:&quot;github&quot;, mode: &quot;json&quot;}" ng-model="newStyles"></div>
-  <button type="button" class="btn btn-default" ng-click="applyStyle()">Apply Style</button>
-</div>
-
-<!--   <h4>Selected Nodes:</h4>
+<div ng-controller="NodeStyleCtrl"><h4>Element Selector:</h4><input type="text" ng-model="cySelector"><h4>JSON Style:</h4><div ui-ace="{useWrapMode : true, showGutter: true, theme:&quot;github&quot;, mode: &quot;json&quot;}" ng-model="newStyles"></div><button type="button" class="btn btn-default" ng-click="applyStyle()">Apply Style</button></div><!--   <h4>Selected Nodes:</h4>
   <div ng-repeat="node in selected" class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" data-target="{{&quot;#&quot; + node.id()}}" class="accordion-toggle">{{node.id()}} Style</a>
@@ -68,4 +60,3 @@
       </tr>
     </table>
   </div> -->
-</div>

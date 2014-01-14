@@ -1,18 +1,1 @@
-
-<h1>Model Gallery</h1>
-<div infinite-scroll="loadMore()" infinite-scroll-distance="2" style="position: relative;">
-  <div ng-repeat="model in gallery" style="border-style: solid;" class="row">
-    <!-- <cytoscape graph='model.graphml' style="border-style: solid; height: 150px;" panZoomControlVisible='false'></cytoscape>-->
-    <div style="position:relative; height: 400px;" class="col-md-9">
-      <cyt sbml="model.getString()"></cyt>
-    </div>
-    <div ng-bind-html="notes[$index]" style="height: 400px; overflow: scroll" class="col-md-3"></div>
-    <div class="btn-group btn-group-justified"><a target="_blank" href="{{&quot;http://github.com/&quot; + model.github.user + &quot;/&quot; + model.github.repo + &quot;/blob/master/&quot; + model.github.file}}" class="btn btn-primary btn-sm pagination-centered"><span class="glyphicon glyphicon-new-window"></span>View on GitHub</a></div>
-    <div class="btn-group btn-group-justified"><a ng-click="loadGalleryRepo($index)" class="btn btn-primary btn-sm pagination-centered"><span class="glyphicon glyphicon-open"></span>Load this Model</a></div>
-  </div>
-  <div data-intro="Some popular models are here." data-position="bottom" class="row"><br/>
-    <p>Models from<a href="https://github.com/sysb-io/sysbio-gallery">the sysb&period;io gallery</a>&period;
-      &lcub;&lcub;loadingText&rcub;&rcub;
-    </p>
-  </div>
-</div>
+<h1>Model Gallery</h1><div infinite-scroll="loadMore()" infinite-scroll-distance="2" style="position: relative"><div ng-repeat="model in gallery" style="border-style: solid" class="row"><!-- <cytoscape graph='model.graphml' style="border-style: solid; height: 150px;" panZoomControlVisible='false'></cytoscape>--><div style="position:relative; height: 400px" class="col-md-9"><cyt sbml="model.getString()"></cyt></div><div ng-bind-html="notes[$index]" style="height: 400px; overflow: scroll" class="col-md-3"></div><div class="btn-group btn-group-justified"><a target="_blank" href="{{&quot;http://github.com/&quot; + model.github.user + &quot;/&quot; + model.github.repo + &quot;/blob/master/&quot; + model.github.file}}" class="btn btn-primary btn-sm pagination-centered"><span class="glyphicon glyphicon-new-window"></span>View on GitHub</a></div><div class="btn-group btn-group-justified"><a ng-click="loadGalleryRepo($index)" class="btn btn-primary btn-sm pagination-centered"><span class="glyphicon glyphicon-open"></span>Load this Model</a></div></div><div data-intro="Some popular models are here." data-position="bottom" class="row"><br><p>Models from<a href="https://github.com/sysb-io/sysbio-gallery">the sysb&period;io gallery</a>&period; &lcub;&lcub;loadingText&rcub;&rcub;</p></div></div>
